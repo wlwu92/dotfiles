@@ -12,8 +12,8 @@ zstyle ':completion:*' menu select
 
 # Key bindings
 bindkey -e
-bindkey '^[[A' history-substring-search-up   2>/dev/null || true
-bindkey '^[[B' history-substring-search-down 2>/dev/null || true
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 
 # ── nvm ───────────────────────────────────────────────────────────────────────
 export NVM_DIR="$HOME/.nvm"
