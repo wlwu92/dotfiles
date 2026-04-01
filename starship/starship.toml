@@ -20,12 +20,12 @@ truncate_to_repo = false
 format = "[$path]($style) "
 
 [git_branch]
-format = "[git:(](bold blue)[$branch](red)"
+format = "[git:\\(](bold blue)[$branch](red)"
 symbol = ""
 
 [git_status]
 # clean: )(blue)   dirty: )(blue) ✗(yellow)
-format = "[)](blue)[$all_status](yellow)"
+format = "[\\)](blue)[$all_status](yellow)"
 conflicted = " ✗"
 ahead = " ✗"
 behind = " ✗"
