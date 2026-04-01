@@ -1,32 +1,35 @@
-# ── Starship prompt — minimal ─────────────────────────────────────────────────
-add_newline = true
+# ── Starship prompt — robbyrussell style ─────────────────────────────────────
+add_newline = false
 
-format = """
-$directory$git_branch$git_status$terraform$nodejs$cmd_duration
-$character"""
+format = "$conda$directory$git_branch$git_status$cmd_duration$line_break$character"
+
+[conda]
+format = "($environment) "
+symbol = ""
+ignore_base = false
 
 [directory]
-style = "blue bold"
-truncation_length = 4
-truncate_to_repo = true
+style = "cyan bold"
+truncation_length = 1
+truncate_to_repo = false
+format = "[$path]($style) "
 
 [git_branch]
-symbol = " "
-style = "purple"
+format = "git:([($branch)](bold red))"
+symbol = ""
 
 [git_status]
-style = "red"
-
-[terraform]
-format = "[$symbol$workspace]($style) "
-symbol = "󱁢 "
-style = "cyan"
-
-[nodejs]
-format = "[$symbol($version)]($style) "
-symbol = " "
-style = "green"
-detect_files = ["package.json", ".nvmrc"]
+format = "[$all_status$ahead_behind]($style) "
+style = "bold red"
+conflicted = "✗"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
 
 [cmd_duration]
 min_time = 2_000
@@ -34,5 +37,11 @@ format = "[$duration]($style) "
 style = "yellow"
 
 [character]
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[nodejs]
+disabled = true
+
+[terraform]
+disabled = true
