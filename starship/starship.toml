@@ -1,0 +1,38 @@
+# ── Starship prompt — minimal ─────────────────────────────────────────────────
+add_newline = true
+
+format = """
+$directory$git_branch$git_status$terraform$nodejs$cmd_duration
+$character"""
+
+[directory]
+style = "blue bold"
+truncation_length = 4
+truncate_to_repo = true
+
+[git_branch]
+symbol = " "
+style = "purple"
+
+[git_status]
+style = "red"
+
+[terraform]
+format = "[$symbol$workspace]($style) "
+symbol = "󱁢 "
+style = "cyan"
+
+[nodejs]
+format = "[$symbol($version)]($style) "
+symbol = " "
+style = "green"
+detect_files = ["package.json", ".nvmrc"]
+
+[cmd_duration]
+min_time = 2_000
+format = "[$duration]($style) "
+style = "yellow"
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"

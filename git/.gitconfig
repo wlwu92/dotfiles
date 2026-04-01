@@ -1,0 +1,27 @@
+[user]
+  # name  = Your Name       ← fill in
+  # email = you@example.com ← fill in
+
+[core]
+  editor = vim
+  autocrlf = input
+  pager = less -FRX
+
+[init]
+  defaultBranch = main
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[alias]
+  st  = status -sb
+  lg  = log --oneline --graph --decorate --all
+  co  = checkout
+  br  = branch
+  undo = reset --soft HEAD~1
+
+[color]
+  ui = auto
