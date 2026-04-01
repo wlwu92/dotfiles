@@ -1,5 +1,5 @@
-# ── Starship prompt — robbyrussell style ─────────────────────────────────────
-# Output: (base) ➜  infra git:(main) !
+# ── Starship prompt — robbyrussell exact match ────────────────────────────────
+# Output: (base) ➜  infra git:(main) ✗
 add_newline = false
 
 format = "$conda$character  $directory$git_branch$git_status$cmd_duration"
@@ -14,33 +14,31 @@ success_symbol = "[➜](bold green)"
 error_symbol = "[➜](bold red)"
 
 [directory]
-style = "cyan bold"
+style = "cyan"
 truncation_length = 1
 truncate_to_repo = false
 format = "[$path]($style) "
 
 [git_branch]
-format = "[git:($branch)]($style)"
-style = "bold red"
+format = "[git:(](bold blue)[$branch](red)"
 symbol = ""
 
 [git_status]
-format = "[ $all_status$ahead_behind]($style)"
-style = "bold red"
-conflicted = "✗"
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕"
-untracked = ""
-modified = "!"
-staged = "+"
-renamed = ""
-deleted = ""
+# clean: )(blue)   dirty: )(blue) ✗(yellow)
+format = "[)](blue)[$all_status](yellow)"
+conflicted = " ✗"
+ahead = " ✗"
+behind = " ✗"
+diverged = " ✗"
+untracked = " ✗"
+modified = " ✗"
+staged = " ✗"
+renamed = " ✗"
+deleted = " ✗"
 
 [cmd_duration]
 min_time = 2_000
-format = " [$duration]($style)"
-style = "yellow"
+format = " [$duration](yellow)"
 
 [nodejs]
 disabled = true
