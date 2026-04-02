@@ -2,7 +2,7 @@
 # Output: (base) ➜  infra git:(main) ✗
 add_newline = false
 
-format = "$conda$character  $directory$git_branch$git_status$cmd_duration"
+format = "$conda$character  $directory$git_branch$git_status"
 
 [conda]
 format = "($environment) "
